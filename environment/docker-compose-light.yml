@@ -1,0 +1,32 @@
+version: '10.2'
+
+networks:
+  thoughts-beta-network:
+    driver: bridge
+
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+    - ./data/db_data:/var/lib/mysql
+    - ./config/mysql/init:/docker-entrypoint-initdb.d/
+    command: [
+      '--character-set-server=utf8mb4',
+      '--collation-server=utf8mb4_unicode_ci',
+      '--default-time-zone=+8:00'
+    ]
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flash_sale
+      MYSQL_USER: thoughts-beta
+      MYSQL_PASSWORD: thoughts-beta
+    ports:
+    - 3306:3306
+    networks:
+    - thoughts-beta-network
+
+
+
+
