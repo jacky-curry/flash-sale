@@ -41,9 +41,11 @@ public class FlashActivityDomainServiceImpl implements FlashActivityDomainServic
             throw new DomainException(ONLINE_FLASH_ACTIVITY_PARAMS_INVALID);
         }
         flashActivity.setStatus(FlashActivityStatus.PUBLISHED.getCode());
+        //持久化发布活动的数据
         flashActivityRepository.save(flashActivity);
         logger.info("activityPublish|活动已发布|{},{}", userId, flashActivity.getId());
 
+        //活动发布事件发布，那么谁来接受呢？
         FlashActivityEvent flashActivityEvent = new FlashActivityEvent();
         flashActivityEvent.setEventType(FlashActivityEventType.PUBLISHED);
         flashActivityEvent.setFlashActivity(flashActivity);
