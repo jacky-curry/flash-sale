@@ -7,17 +7,16 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class FlashItemCache {
-    protected boolean exist;
-    private FlashItem flashItem;
-    private Long version;
-    private boolean later;
+    protected boolean exist; // 商品是否存在的标志
+    private FlashItem flashItem; // 商品信息
+    private Long version; // 版本号
+    private boolean later; // 是否稍后尝试
 
     public FlashItemCache with(FlashItem flashActivity) {
         this.exist = true;
         this.flashItem = flashActivity;
         return this;
     }
-
 
     public FlashItemCache withVersion(Long version) {
         this.version = version;
