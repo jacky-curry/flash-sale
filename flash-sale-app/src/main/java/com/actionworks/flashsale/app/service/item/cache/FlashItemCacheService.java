@@ -54,18 +54,19 @@ public class FlashItemCacheService {
         if (flashItemCache != null) {
             if (version == null) {
                 logger.info("itemCache|命中本地缓存|{}", itemId);
-                return flashItemCache;
+                return flashItemCache; // 返回本地缓存中的商品数据
             }
             if (version.equals(flashItemCache.getVersion()) || version < flashItemCache.getVersion()) {
                 logger.info("itemCache|命中本地缓存|{}|{}", itemId, version);
-                return flashItemCache;
+                return flashItemCache; // 返回本地缓存中的商品数据
             }
             if (version > flashItemCache.getVersion()) {
-                return getLatestDistributedCache(itemId);
+                return getLatestDistributedCache(itemId); // 返回最新的分布式缓存中的商品数据
             }
         }
-        return getLatestDistributedCache(itemId);
+        return getLatestDistributedCache(itemId); // 返回最新的分布式缓存中的商品数据
     }
+
 
     private FlashItemCache getLatestDistributedCache(Long itemId) {
         logger.info("itemCache|读取远程缓存|{}", itemId);

@@ -73,6 +73,7 @@ public class RedisCacheService implements DistributedCacheService {
 
     @Override
     public <T> List<T> getList(String key, Class<T> targetClass) {
+        //execute() 方法接受一个 RedisCallback 对象作为参数，该对象包含了要执行的具体 Redis 命令逻辑。
         Object result = redisTemplate.execute((RedisCallback<Object>) connection ->
                 connection.get(key.getBytes()));
         if (result == null) {
