@@ -1,5 +1,6 @@
 # flash-sale LEARN
-这个项目的来源是https://github.com/ThoughtsBeta/flash-sale，我们这里主要是打算学习和研究这个项目，为代码添加注释和自己的理解，同时输出文章总结。
+这个项目的来源是https://github.com/ThoughtsBeta/flash-sale
+我们这里主要是打算学习和研究这个项目，为代码添加注释和自己的理解，同时输出文章总结。
 如果大家有兴趣的话，可以关注http://t.csdn.cn/xUpC7我的博客，会持续更新到学习完毕的~
 
 如果大家想一起来学习和优化，可以博客私聊我，一起学习进步~
